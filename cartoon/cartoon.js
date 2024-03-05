@@ -1,37 +1,44 @@
 const canvas = document.getElementById('cartoonCanvas');
 const ctx = canvas.getContext('2d');
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Canvas is loading', canvas);
+    //This draws the sky
+    ctx.fillStyle = '#87CEEB'; //light blue
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-//This draws the sky
-ctx.fillStyle = '#87CEEB'; //light blue
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //This draws the sun
+    drawCircle('#FFF200', 100, 100, 60, 2);
 
-//This draws the sun
-drawCircle('#FFF200', 100, 100, 60, 2);
+    //This draws the mountain range
+    drawMountain('#607D8B', 0, 500, 150, 200, 350, 500); //mountain grey
+    drawMountain('#607D8B', 150, 500, 300, 200, 450, 500);
+    drawMountain('#607D8B', 300, 500, 450, 300, 550, 500);
 
-//This draws the mountain range
-drawMountain('#607D8B', 0, 500, 150, 200, 350, 500); //mountain grey
-drawMountain('#607D8B', 150, 500, 300, 200, 450, 500);
-drawMountain('#607D8B', 300, 500, 450, 300, 550, 500);
+    //This draws the dirt and green grass layer
+    drawGround('#795548', 500, 200); //dirt brown
+    drawGround('#4CAF50', 500, 575);
+    drawHouse(500, 350, 200, 150);
 
-//This draws the dirt and green grass layer
-drawGround('#795548', 500, 200); //dirt brown
-drawGround('#4CAF50', 500, 575);
-drawHouse(500, 350, 200, 150);
+    //This draws the sailboat
+    drawBoat();
 
-//This draws the sailboat
-drawBoat();
+    //This draws the lake
+    drawCircle('#3F51B5', 1000, 500, 300, 1);
 
-//This draws the lake
-drawCircle('#3F51B5', 1000, 500, 300, 1);
+    //This draws the fence, and the method uses a for-loop
+    drawFence('#FFFBDD', 400, 450, 10);
 
-//This draws the fence, and the method uses a for-loop
-drawFence('#FFFBDD', 400, 450, 10);
+    //This draws the various clouds in the sky
+    drawCloud(300, 100, 20);
+    drawCloud(700, 200, 20);
+    drawCloud(1000, 100, 40);
+    drawCloud(1250, 250, 20);
 
-//This draws the various clouds in the sky
-drawCloud(300, 100, 20);
-drawCloud(700, 200, 20);
-drawCloud(1000, 100, 40);
-drawCloud(1250, 250, 20);
+    //This is the caption text
+    ctx.fillStyle = '#673AB7'; // purple
+    ctx.font = '30px Times New Roman';
+    ctx.fillText('What a beautiful day!', 550, 30);
+});
 
 //this function is used for the sun, the lake, and the boat
 function drawCircle(color, x, y, size, rotation) {
@@ -132,9 +139,4 @@ function drawFence(color, startX, startY, quantity) {
     }
 
 }
-
-//This is the caption text
-ctx.fillStyle = '#673AB7'; // purple
-ctx.font = '30px Times New Roman';
-ctx.fillText('What a beautiful day!', 550, 30);
 
