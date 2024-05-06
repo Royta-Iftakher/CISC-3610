@@ -4,6 +4,9 @@ const ctx = canvas.getContext('2d');
 //animation dimensions (per sprite)//
 const width = 64;
 const height = 72;
+var done = false;
+var currentSpriteLocationX = 0;
+var currentSpriteLocationY = 0;
 
 // ctx.drawImage(man, 0, 0, width, height - 4, 0, 0, width, height - 4);//sprite 1
 
@@ -34,32 +37,41 @@ document.addEventListener('DOMContentLoaded', function () {
     let imagesLoaded = 0; // Counter to track loaded images
     const totalImages = moveLeft.length;
 
+    const checkIfLoaded = () => {
+        if (imagesLoaded === totalImages) {
+            startAnimation();
+        }
+    };
+
     // Increment when each image is loaded
-    moveLeft.forEach((moveLeft) => {
-        moveLeft.onload = function () {
+    moveLeft.concat(moveRight).forEach((img) => {
+        img.onload = function () {
             imagesLoaded++;
-            if (imagesLoaded === totalImages) {
-                startAnimation(); // Start animation when all images are loaded
-            }
+            checkIfLoaded();
         };
 
-        moveLeft.onerror = function (e) {
+        img.onerror = function (e) {
             console.error("Error loading image:", e.target.src);
         };
     });
 });
 
-function startAnimation(){
+function startAnimation() {
     drawScene();
     animateSpriteLeft(moveLeft, frameWidth, frameHeight, frameDuration, 620, 435, -100); // Set desired position 
-    animateSpriteLeft(moveRight, frameWidth, frameHeight, frameDuration, 620, 435, -100); // Set desired position
+    setTimeout(() => {
+        console.log("Starting rightward animation...");
+        animateSpriteRight(
+            moveRight, frameWidth, frameHeight, frameDuration, 320, 435, 110
+        );
+    }, frameDuration * 100);
+
 }
 
-function drawScene(){
+function drawScene() {
     //This draws the sky
     ctx.fillStyle = '#87CEEB'; //light blue
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
 
     //This draws the sun
     drawCircle('#FFF200', 100, 100, 60, 2);
@@ -208,7 +220,11 @@ const moveRight = [];
 const frameCountRight = 11;
 for (let i = 9; i <= frameCountRight; i++) {
     const xx_green = new Image();
-    xx_green.src = `images/0${i}_Green.png`; // Adjust to match your sprite filenames
+    if (i < 10) {
+        xx_green.src = `images/0${i}_Green.png`;
+    } else {
+        xx_green.src = `images/${i}_Green.png`;
+    } // Adjust to match your sprite filenames
     moveRight.push(xx_green);
 }
 
@@ -217,6 +233,7 @@ function animateSpriteLeft(movement, frameWidth, frameHeight, frameDuration, x, 
     let totalDistance = 0;
     let currentFrame = 0;
     let lastTimestamp = 0;
+    var done = false;
 
     function animationLoop(timestamp) {
         const elapsed = timestamp - lastTimestamp;
@@ -232,21 +249,35 @@ function animateSpriteLeft(movement, frameWidth, frameHeight, frameDuration, x, 
             drawScene();
 
             // Draw the current sprite frame
-            ctx.drawImage(movement[currentFrame], x - (totalDistance*3), y, frameWidth, frameHeight);
+            ctx.drawImage(movement[currentFrame], x - (totalDistance * 3), y, frameWidth, frameHeight);
+            currentSpriteLocationX = x - (totalDistance * 3);
+            currentSpriteLocationY = y;
 
             lastTimestamp = timestamp; // Update the last timestamp
-            if (totalDistance < Math.abs(distanceX)){
+            if (totalDistance < Math.abs(distanceX)) {
                 totalDistance++;
+            } else {
+                done = true;
+                walked_to_left = true;
             }
         }
 
         // Request the next frame
-        requestAnimationFrame(animationLoop);
+        if (!done) {
+            requestAnimationFrame(animationLoop);
+        } else {
+            return;
+        }
     }
 
     // Start the animation
-    requestAnimationFrame(animationLoop);
+    if (!done) {
+        requestAnimationFrame(animationLoop);
+    } else {
+        return;
+    }
 }
+
 function animateSpriteRight(movement, frameWidth, frameHeight, frameDuration, x, y, distanceX) {
     let totalDistance = 0;
     let currentFrame = 0;
@@ -266,11 +297,29 @@ function animateSpriteRight(movement, frameWidth, frameHeight, frameDuration, x,
             drawScene();
 
             // Draw the current sprite frame
-            ctx.drawImage(movement[currentFrame], x + (totalDistance*3), y, frameWidth, frameHeight);
+            ctx.drawImage(movement[currentFrame], x + (totalDistance * 3), y, frameWidth, frameHeight);
+            currentSpriteLocationX = x - (totalDistance * 3);
+            currentSpriteLocationY = y;
 
             lastTimestamp = timestamp; // Update the last timestamp
-            if (totalDistance < Math.abs(distanceX)){
+            if (totalDistance < distanceX) {
                 totalDistance++;
+            } else {
+                console.log("Animation Right is complete!"); // Log to console
+                ctx.beginPath();
+                ctx.arc(750, 410, 30, 0, 2 * Math.PI); // 360-degree circle
+                ctx.arc(780, 410, 40, 0, 2 * Math.PI);
+                ctx.arc(720, 410, 40, 0, 2 * Math.PI);
+                ctx.arc(820, 410, 30, 0, 2 * Math.PI);
+                ctx.arc(720, 410, 15, 0, 2 * Math.PI);
+                ctx.fillStyle = "white"; // Set the fill color
+                ctx.fill(); // Fill the circle
+                ctx.closePath();
+                ctx.fillStyle = "black"; // Set color for text
+                ctx.font = "24px Times New Roman"; // Font and size
+                ctx.fillText("What's taking", 700, 410);
+                ctx.fillText("so long?", 710, 430);
+                return;
             }
         }
 
