@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./form.css">
 </head>
+
 <body>
-    
+    <!-- How long is your speech? -->
+    <!-- how many words per minute can you read? -->
+    <!-- Radio button: I don't know -->
+    <!-- Maybe a brief example that they can use to test how long it takes them to read  -->
+    <!-- Input Field: wpm (This gets saved to a cookie) -->
+    <!-- Button Option to reset the cookie-->
+    <!-- Give me the body of text -->
+    <!-- Input Field: I count the words -->
+    <!-- formula = M total words / N wpm = X minutes to read-->
+    <!-- Output: Calculate according to words per minute using counted words and wpm-->
+    <div class="bg-img">
+        <form class="container">
+            <h1>WPM Caclulator</h1>
+            <h3>Have you ever wanted to know how long it would take you to read a portion of text out loud? Well look no
+                further, because this handy tool can help you figure it out! </h3>
+
+            <h3>Step 1: How long is your speech?</h3>
+            <label for="passage"><b>Paste your passage below:</b></label>
+            <textarea id="passageInput" placeholder="We'll count the total number of words here..." name="passage"
+                required></textarea>
+            <div id="wordCount">Word count: 0</div>
+
+
+            <br>
+
+            <h3>Step 2: How many words per minute can you read?</h3>
+
+            <!-- <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button type="submit" class="btn">Login</button> -->
+        </form>
+    </div>
+    <script src="./form.js"></script>
 </body>
+
 </html>
