@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./audio.css">
+</head>
+
+<body>
+    <div class="background-rectangles">
+        <div class="rectangle wall-bg"></div>
+        <div class="rectangle floor-bg"></div>
+    </div>
+
+    <audio id="main" loop autoplay>
+        <source src="./src/main.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sink">
+        <source src="./src/sink.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="mixer">
+        <source src="./src/mixer.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="kettle">
+        <source src="./src/kettle.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pot">
+        <source src="./src/pot.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="cabinet">
+        <source src="./src/cabinet.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="timer">
+        <source src="./src/timer.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="cloth">
+        <source src="./src/cloth.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <h1>Royta Iftakher - Audio Lab Assignment</h1>
+    <div class="homePage">
+        <a href="../index.html" class="homeButton">Go Back to Homepage</a>
+    </div>
+    <h3>Click on various objects in the kitchen below to hear their sounds!</h3>
+    <img src="./kitchen.png" usemap="#image-map">
+
+
+    <map name="image-map">
+        <area target="" alt="sink" title="sink" href="javascript:void(0);"
+            coords="66,226,83,225,84,209,110,209,110,222,123,227,126,211,143,211,143,205,152,205,153,155,161,142,171,136,183,135,193,136,199,139,203,144,207,150,209,159,212,165,213,173,194,172,194,164,198,158,192,152,184,147,176,147,167,153,165,162,165,171,164,182,164,191,165,199,166,207,173,205,175,212,195,213,194,225,206,226,207,210,231,209,235,215,235,223,249,227,249,236,67,235"
+            shape="poly" onclick="playSink()">
+        <area target="" alt="mixer" title="mixer" href="javascript:void(0);"
+            coords="272,225,274,214,286,208,288,132,299,123,374,123,384,125,386,132,396,133,396,144,389,152,389,165,390,173,412,175,412,194,407,204,405,217,405,225"
+            shape="poly" onclick="playMixer()">
+        <area target="" alt="kettle" title="kettle" href="javascript:void(0);"
+            coords="576,166,557,191,564,197,577,181,583,184,574,193,571,204,570,214,671,217,665,192,671,184,659,173,649,174,646,164,626,159,609,160,606,167,596,167,593,175"
+            shape="poly" onclick="playKettle()">
+        <area target="" alt="pot" title="pot" href="javascript:void(0);"
+            coords="434,130,425,134,427,144,448,163,443,169,432,169,432,175,444,178,445,213,546,216,543,176,556,177,557,169,545,167,545,159,469,159"
+            shape="poly" onclick="playPot()">
+        <area target="" alt="cabinet" title="cabinet" href="javascript:void(0);"
+            coords="291,354,293,486,385,487,385,356" shape="poly" onclick="playCabinet()">
+        <area target="" alt="timer" title="timer" href="javascript:void(0);" coords="534,235,535,250,569,250,571,236"
+            shape="poly" onclick="playTimer()">
+        <area target="" alt="cloth" title="cloth" href="javascript:void(0);" coords="707,286,794,385" shape="rect"
+            onclick="playCloth()">
+    </map>
+
+    <img class="radio" src="./radio.png" onclick="playMain()" ondblclick="stopMain()">
+
+    <script src="./audio.js"></script>
+</body>
+
+</html>

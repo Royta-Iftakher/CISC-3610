@@ -1,6 +1,9 @@
 body,
-html {
+html{
     height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Helvetica';
 }
 
 * {
@@ -9,7 +12,7 @@ html {
 
 .bg-img {
     /* The image used */
-    background-image: url("test.jpg");
+    background-image: url("scrabble.jpg");
 
     /* Control the height of the image */
     min-height: 100vh;
@@ -23,13 +26,44 @@ html {
 }
 
 /* Add styles to the form container */
-.container {
+.step-1 {
     position: absolute;
     /* right: 0; */
     margin: 20px;
-    max-width: 500px;
+    left: 50px;
+    max-width: 700px;
     padding: 20px;
-    background-color: white;
+    background-color: rgb(255, 245, 220);
+    border: 4px outset rgb(255, 245, 220);
+}
+.step-2 {
+    position: absolute;
+    top: 510px;
+    left: 50px;
+    margin: 20px;
+    width: 100%;
+    max-width: 700px;
+    max-height: 180px;
+    padding: 20px;
+    background-color: rgb(255, 245, 220);
+    border: 4px outset rgb(255, 245, 220);
+}
+.step-3 {
+    position: absolute;
+    top: 150px;
+    left: 775px;
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+    max-width: 540px;
+    max-height: 400px;
+    padding: 20px;
+    background-color: rgb(255, 245, 220);
+    border: 4px outset rgb(255, 245, 220);
+}
+
+.step2-content{
+    margin-top: -15px;
 }
 
 /* Full-width input fields */
@@ -39,40 +73,118 @@ input[type=password] {
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
-    background: #f1f1f1;
+    color: #995a0d;
+    background-color:#fbe7bd;
+    border: 1px solid #f6c991;
+}
+
+.textarea-container {
+    position: relative; /* Set the container as relative positioning context */
+    width: 100%;
+    margin-bottom: 30px; /* Ensure space for the word count */
 }
 
 textarea {
-    width: 100%;
-    height: 200px;
-    /* Adjust height as needed */
+    width: calc(100% - 10px); /* Adjust width to accommodate the scrollbar */
+    height: 200px; /* Adjust height as needed */
     padding: 10px;
-    margin: 5px 0 22px 0;
-    border: 1px solid #ccc;
-    /* Add border */
-    resize: vertical;
-    /* Allow vertical resizing */
-    overflow-y: auto;
-    /* Enable vertical scrollbar when content exceeds height */
+    margin: 0;
+    color: #995a0d;
+    background-color:#fbe7bd;
+    border: 1px solid #f6c991; /* Add border */
+    resize: vertical; /* Allow vertical resizing */
+    overflow-y: auto; /* Enable vertical scrollbar when content exceeds height */
 }
 
-input[type=text]:focus,
-input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
+#wordCount {
+    position: absolute;
+    bottom: 0px;
+    right: 30px;
+    color: #999; /* Adjust color as needed */
+    font-size: 14px; /* Adjust font size as needed */
 }
 
-/* Set a style for the submit button */
-.btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
+.result {
+    background-color: #ffefd5;
+    border: 3px solid #ffdda7;
+    padding: 10px;
+    margin-top: 20px;
 }
 
-.btn:hover {
-    opacity: 1;
+.homePage {
+    font-family: 'verdana';
+}
+.homeButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffe097; /* Button color */
+    color: #7b5704; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+.saveWPM{
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #a8ff97; /* Button color */
+    color: #7b5704; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+.resetWPM{
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #ffb897; /* Button color */
+    color: #7b5704; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+.calculateButton{
+    display: inline-block;
+    font-size: 50px;
+    padding: 10px 20px;
+    background-color: #816104; /* Button color */
+    color: #f8f8f8; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.calculateButton:hover,
+.saveWPM:hover,
+.resetWPM:hover, .homeButton:hover{
+    opacity: 0.7;
+}
+.calculateButton:disabled{
+    opacity: 0.5; /* Adjust the opacity value as needed */
+}
+
+h1{
+    color: #694e12; 
+}
+
+h2{
+    color: #865a21; 
+}
+
+h3{
+    color: #96682b; 
+}
+
+h4{
+    color: #7b5704; 
+}
+
+p{
+     color: #7b5704; 
+}
+
+label{
+    color: #7b5704;
 }
