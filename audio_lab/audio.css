@@ -4,6 +4,10 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+.homeButton:hover{
+    opacity: 0.7;
+}
+
 h1 {
     color: #005688;
 }
