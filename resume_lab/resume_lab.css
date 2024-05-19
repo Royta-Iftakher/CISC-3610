@@ -1,0 +1,89 @@
+/* #555B6E = dark grey */
+/* #89B0AE = dark-ish green */
+/* #BEE3DB = lighter green */
+/* #FAF9F9 = eggshell */
+/* #FFE5D9 = sandy */
+/* #FAE1DD = soft peach */
+/* ##D8E2DC = lightest green */
+
+.main{
+    background-color: #BEE3DB;
+}
+
+.main-title{
+    margin-left:50px;
+}
+
+.navbar-brand{
+    margin-left:50px;
+    background-color:#FAF9F9;
+}
+
+body{
+    background-color:#FAE1DD;
+}
+
+.page-content{
+    margin-left:100px;
+    margin-right:100px;
+    background-color:#D8E2DC;
+    padding-left:50px;
+}
+
+.contact-me {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.form-group textarea {
+    height: 150px;
+}
+.form-group button {
+    background-color: #89B0AE;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buttons:hover{
+    opacity: 0.7;
+}
+.projectButton {
+    font-family: 'verdana';
+}
+
+.buttons {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #89B0AE;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: -30px;
+    margin-bottom: 10px;
+}
+
+/* style="background-color: antiquewhite; height:100vh; margin:100px; margin-top:-50px;" */

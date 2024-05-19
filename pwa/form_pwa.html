@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWA</title>
+    <link rel="stylesheet" type="text/css" href="./form_pwa.css">
+    <link rel="manifest"
+        href="manifest.json">
+</head>
+
+<body>
+    <!-- How long is your speech? -->
+    <!-- how many words per minute can you read? -->
+    <!-- Radio button: I don't know -->
+    <!-- Maybe a brief example that they can use to test how long it takes them to read  -->
+    <!-- Input Field: wpm (This gets saved to a cookie) -->
+    <!-- Button Option to reset the cookie-->
+    <!-- Give me the body of text -->
+    <!-- Input Field: I count the words -->
+    <!-- formula = M total words / N wpm = X minutes to read-->
+    <!-- Output: Calculate according to words per minute using counted words and wpm-->
+    <div class="bg-img">
+        <form class="step-1">
+            <div class="homePage">
+                <a href="../index.html" class="homeButton">Go Back to Homepage</a>
+            </div>            
+            
+            <h1>WPM Caclulator</h1>
+
+            <p>Have you ever wanted to know how long it would take you to read a portion of text out loud? Well look no
+                further, because this handy tool can help you figure it out! </p>
+
+            <h3>Step 1: How long is your speech?</h3>
+            <label for="passage"><b>Paste your passage below:</b></label>
+            <div class="textarea-container">
+                <textarea id="passageInput" placeholder="We'll count the total number of words here..." name="passage"
+                    required></textarea>
+                <div id="wordCount">Word Count: 0</div>
+            </div>
+
+        </form>
+        <form class="step-2">
+            <div class="step2-content">
+                <h3>Step 2: How many words per minute (WPM) can you read?</h3>
+                <input type="text" placeholder="Enter WPM" id="wpmInput" required>
+                <button class="saveWPM" id="saveWPMButton">Save WPM</button>
+                <button class="resetWPM" id="resetWPM">Reset WPM</button>
+            </div>
+ </form>
+    </div>
+    <form class="step-3">
+        <div class="step3-content">
+        <h3>Step 3: Calculate!</h3>
+        <h4>Here's where the magic happens</h4>
+        <button class="calculateButton" id="calculateButton" disabled>Calculate!</button>
+        </div>
+    </form>
+    <script src="./form_pwa.js"></script>
+
+
+<script>
+    window.addEventListener('load', () => {
+      registerSW();
+    });
+ 
+    // Register the Service Worker
+    async function registerSW() {
+      if ('serviceWorker' in navigator) {
+        try {
+          await navigator
+                .serviceWorker
+                .register('serviceworker.js');
+        }
+        catch (e) {
+          console.log('SW registration failed');
+        }
+      }
+    }
+ </script>
+
+</body>
+
+</html>

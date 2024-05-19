@@ -1,0 +1,24 @@
+{
+    "theme_color":"#fae1a0",
+    "background_color":"#fef6df",
+    "orientation":"any",
+    "display":"standalone",
+    "dir":"auto",
+    "lang":"en-US",
+    "name":"Words Per Minute Calculator",
+    "short_name":"WPM Calc",
+    "start_url":"/~CISC-3610/pwa/pwa.html",
+    "description":"Ever wondered how long a speech or presentation would take you to read? Well worry not, here's an app that calculates that for you! ",
+    "icons":[
+        {
+        "src":"images/icon-192x192.png",                      
+        "sizes":"192x192",
+        "type":"image/png"
+        },
+        {
+        "src":"images/icon-512x512.png",
+        "sizes":"512x512",
+        "type":"image/png"
+        }
+    ]
+}
